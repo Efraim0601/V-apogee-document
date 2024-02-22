@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterModule, RouterOutlet} from '@angular/router';
 import { RegisterComponent } from "./register/register.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @Component({
@@ -10,9 +11,11 @@ import { RegisterComponent } from "./register/register.component";
     styleUrl: './app.component.css',
     imports: [
         RouterOutlet,
-        RegisterComponent
+        RegisterComponent,
+      ReactiveFormsModule,
+      RouterModule,
     ]
 })
 export class AppComponent {
-  
+
 }

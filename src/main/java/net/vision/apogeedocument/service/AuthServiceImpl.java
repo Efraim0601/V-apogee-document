@@ -51,12 +51,12 @@ public class AuthServiceImpl implements AuthService {
 
 
         // vérifier si User est un employé à l'entreprise
-
+        /*String key_word_email = " @gmail.com";
+        contain_key_word(key_word_email, signupRequest);*/
         //************* à insérer dans une variable*****************
-        if(!signupRequest.getEmail().contains("@cccmtl.ca")){
-            throw new RuntimeException("ce n'est pas un Email de l'entreprise!!! ");
 
-        }
+
+
 
         // vérification de la présence d'un email dans la base de donnée
         Optional<User> userOptional = this.userRepository.findByEmail(signupRequest.getEmail());
@@ -70,28 +70,13 @@ public class AuthServiceImpl implements AuthService {
 
         User user = new User();
 
-        if(userInDatabase.isEmpty()){
-
-            user.setEmail(signupRequest.getEmail());
-            user.setNumero(signupRequest.getNumero());
-            user.setLastName(signupRequest.getLastName());
-            user.setFirstName(signupRequest.getFirstName());
-            user.setNumero_employe(signupRequest.getNumero_employe());
-            User saveUser = this.userRepository.save(user);
-            this.validationService.keppValidation(saveUser);
-        }
-
-
-
-
-
 
 
 
         BeanUtils.copyProperties(signupRequest, user);
         String hashPassword = "";
 
-        /*//Hash the password before saving
+        //Hash the password before saving
         if (signupRequest.getPassword().length() >= 8) {
             hashPassword = passwordEncoder.encode(signupRequest.getPassword());
             user.setPassword(hashPassword);
@@ -99,8 +84,26 @@ public class AuthServiceImpl implements AuthService {
 
 
 
-        user.setNumero_employe(createUser.getNumero_employe());*/
+        user.setNumero_employe(signupRequest.getNumero_employe());
+        if(userInDatabase.isEmpty()){
+
+            user.setEmail(signupRequest.getEmail());
+            user.setNumero(signupRequest.getNumero());
+            user.setLastName(signupRequest.getLastName());
+            user.setFirstName(signupRequest.getFirstName());
+            user.setNumero_employe(signupRequest.getNumero_employe());
+            //User saveUser = this.userRepository.save(user);
+            this.validationService.keppValidation(user);
+        }
+
 
         return true;
+    }
+
+    private void contain_key_word(String s, SignupRequest signupRequest) {
+        if(!signupRequest.getEmail().contains(s)){
+            throw new RuntimeException("ce n'est pas un Email de l'entreprise!!! ");
+
+        }
     }
 }
