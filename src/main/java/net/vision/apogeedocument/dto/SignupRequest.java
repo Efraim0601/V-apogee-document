@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SignupRequest {
-    private Long numero_employe;
+    private Integer numeroempl;
     private String firstName;
     private String lastName;
     private String email;

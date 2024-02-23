@@ -40,6 +40,7 @@ public class ValidationService {
         validation.setCode(code);
         this.validationRepository.save(validation);
         this.notificationService.envoyer(validation);
+
     }
 
     public Validation getByCode(String code) {

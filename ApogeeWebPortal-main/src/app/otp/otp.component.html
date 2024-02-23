@@ -1,1 +1,28 @@
-<p>otp works!</p>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-4 text-center">
+      <div class="row">
+        <div class="col-sm-12 mt-5 bgWhite">
+          <div class="title">
+            Verify OTP
+          </div>
+
+          <form [formGroup]="otpForm"  class="mt-5" (submit)="submitOtpForm()">
+            <input class="otp col" #firstDigit type="text" (input)="digitValidate(firstDigit)" (keyup)='tabChange(1)' maxlength=1 formControlName="first" required>
+            <input class="otp col" #secondDigit type="text" (input)='digitValidate(secondDigit)' (keyup)='tabChange(2)' maxlength=1 formControlName="second" required>
+            <input class="otp col" #thirdDigit type="text" (input)='digitValidate(thirdDigit)' (keyup)='tabChange(3)' maxlength=1 formControlName="third" required>
+            <input class="otp col" #fourthDigit type="text" (input)='digitValidate(fourthDigit)' (keyup)='tabChange(4)' maxlength=1 formControlName="fourth" required>
+            <input class="otp col" #fifthDigit type="text" (input)='digitValidate(fifthDigit)' (keyup)='tabChange(5)' maxlength=1 formControlName="fifth" required>
+            <input class="otp col" #sixthDigit type="text" (input)='digitValidate(sixthDigit)' (keyup)='tabChange(6)' maxlength=1 formControlName="sixth" required>
+
+            <hr class="mt-4">
+            <button type="submit" class='btn btn-warning btn-block mt-4 mb-4 customBtn' >Verify</button>
+          </form>
+          <!-- gérer la validation au niveau du form-->
+          <!-- mettre un message pour retourner l'erreur rencontré-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

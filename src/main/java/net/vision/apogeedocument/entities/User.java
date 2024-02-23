@@ -11,10 +11,11 @@ import lombok.Setter;
 @NoArgsConstructor
  @Getter
 @Setter
+@Table(name = "USER")
 public class User {
 
     @Id
-    private Long numero_employe;
+    private Integer numeroempl;
     private String firstName;
     private String lastName;
     private String email;

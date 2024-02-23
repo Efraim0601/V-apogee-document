@@ -1,7 +1,8 @@
 import {Component, signal} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {RegisterService} from "../sercices/register.service";
+import {RegisterService} from "../services/register.service";
+
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent {
       email : ['', [Validators.required, Validators.email]],
       password : ['', [Validators.required]],
       confirmPassword : ['', [Validators.required]],
-    }, {validators: this.passwordMathValidator})
+    }, )
   }
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class LoginComponent {
 
 
 
-  passwordMathValidator(formGroup: FormGroup) {
+  /*passwordMathValidator(formGroup: FormGroup) {
     const password = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;
     if (password != confirmPassword) {
@@ -55,6 +56,6 @@ export class LoginComponent {
         }
       );
     }
-  }
+  }*/
 
 }

@@ -3,6 +3,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { OtpComponent } from './otp/otp.component';
+import {ChangePasswordComponent} from "./change-password/change-password.component";
 
 export const routes: Routes = [
     {
@@ -21,7 +22,7 @@ export const routes: Routes = [
         title: 'OTP'
     },
     {
-        path: '', 
+        path: '',
         redirectTo:'/login',
         pathMatch: 'full'
     },
@@ -30,4 +31,9 @@ export const routes: Routes = [
         component: PageNotFoundComponent,
         title: 'Page 404'
     },
+  {
+    path: 'change_password',
+    component: ChangePasswordComponent,
+    title: 'ChangePassword'
+  },
 ];

@@ -1,5 +1,4 @@
-<!--
- Start your project here
+
 <section class="vh-100" >
   <div class="container py-5 ">
     <div class="row d-flex justify-content-center align-items-center ">
@@ -16,7 +15,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form [formGroup]="loginForm" (ngSubmit)=submitloginForm()>
+                <form [formGroup]="loginForm">
 
                   <div class="d-flex  mb-0 pb-1 align-items-center justify-content-center" >
                     <span class="h1 fw-bold mb-0 align-items-center">Login</span>
@@ -36,7 +35,8 @@
 
                   <div class="row">
                     <p><a class="small text-muted" href="#!">Forgot password?</a></p>
-                    <p class="mb-5 pb-lg-2" style="color: #393f81;">don't have an account? <a routerLink="/login" style="color: #393f81;">register here</a></p>
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">don't have an account? <a routerLink="/register" style="color: #393f81;">register here</a></p>
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">don't have an account? <a routerLink="/register" style="color: #393f81;">register here</a></p>
 
                   </div>
                 </form>
@@ -51,4 +51,3 @@
 </section>
 <router-outlet></router-outlet>
  End your project here
--->

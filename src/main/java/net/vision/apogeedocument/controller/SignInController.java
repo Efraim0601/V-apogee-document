@@ -3,6 +3,7 @@ package net.vision.apogeedocument.controller;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import net.vision.apogeedocument.dto.SignupRequest;
+import net.vision.apogeedocument.entities.User;
 import net.vision.apogeedocument.service.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -20,7 +21,7 @@ public class SignInController {
     private final AuthService authService;
 
     @PostMapping(path = "signup")
-    public ResponseEntity<String> sing_up_user(@RequestBody SignupRequest signupRequest){
+    public ResponseEntity<String> sing_up_user(@RequestBody User signupRequest){
         boolean isUserCreated = authService.createUser(signupRequest);
         if (isUserCreated){
             return ResponseEntity.status(HttpStatus.CREATED).body("Custumer created succesfully");

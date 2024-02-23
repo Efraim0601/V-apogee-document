@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {RouterModule, RouterOutlet} from '@angular/router';
 import { RegisterComponent } from "./register/register.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {LoginComponent} from "./login/login.component";
 
 
 @Component({
@@ -9,12 +10,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [
-        RouterOutlet,
-        RegisterComponent,
-      ReactiveFormsModule,
-      RouterModule,
-    ]
+  imports: [
+    RouterOutlet,
+    RegisterComponent,
+    ReactiveFormsModule,
+    RouterModule,
+    LoginComponent,
+  ]
 })
 export class AppComponent {
 

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { RegisterService } from '../sercices/register.service';
+import {Router, RouterModule} from '@angular/router';
+import {RegisterService} from "../services/register.service";
 
 @Component({
   selector: 'app-register',
@@ -19,17 +19,29 @@ export class RegisterComponent implements OnInit{
 
   constructor(
     private service: RegisterService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private route : Router
   ) {
+
     this.registerForm = this.fb.group({
       firstName : ['', [Validators.required]],
       lastName : ['', [Validators.required]],
-      employeeNumber : ['', [Validators.required]],
+      numeroempl : ['', [Validators.required]],
       phoneNumber : ['', [Validators.required]],
       email : ['', [Validators.required, Validators.email]],
       password : ['', [Validators.required]],
       confirmPassword : ['', [Validators.required]],
     }, {validators: this.passwordMathValidator})
+
+    /*this.registerForm = this.fb.group({
+      firstName : ['', [Validators.required]],
+      lastName : ['', [Validators.required]],
+      employeeNumber : ['', [Validators.required, Validators.pattern('[0-9]{5}')]],
+      phoneNumber : ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      email : ['', [Validators.required, Validators.email]],
+      password : ['', [Validators.required]],
+      confirmPassword : ['', [Validators.required]],
+    }, {validators: this.passwordMathValidator})*/
   }
 
   ngOnInit(): void {
@@ -54,6 +66,7 @@ export class RegisterComponent implements OnInit{
       this.service.register(this.registerForm.value).subscribe(
         (response) => {
           if (response.id != null) {
+            this.route.navigate(['/otp']);
             alert("Hello " + response.name);
           }
         }
